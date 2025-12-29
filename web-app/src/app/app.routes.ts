@@ -9,34 +9,48 @@ import { LeavesComponent } from './pages/leaves/leaves.component';
 import { AttendaceComponent } from './pages/attendace/attendace.component';
 
 export const routes: Routes = [
+  // ✅ Default route → Login
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
-  {
-    path: 'employee-dashboard',
-    component: EmployeedashboardComponent,
-  },
-  {
-    path: 'departments',
-    component: DepartmentsComponent,
-  },
-  {
-    path: 'employee',
-    component: EmployeeComponent,
-  },
+
   {
     path: 'login',
     component: LoginComponent,
   },
+
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+
+  {
+    path: 'employee-dashboard',
+    component: EmployeedashboardComponent,
+  },
+
+  {
+    path: 'departments',
+    component: DepartmentsComponent,
+  },
+
+  {
+    path: 'employee',
+    component: EmployeeComponent,
+  },
+
   {
     path: 'profile',
     component: ProfileComponent,
   },
+
   {
     path: 'leaves',
     component: LeavesComponent,
   },
+
   {
     path: 'attendace',
     component: AttendaceComponent,
@@ -45,4 +59,11 @@ export const routes: Routes = [
     path: 'attendace/:id',
     component: AttendaceComponent,
   },
+
+  // ✅ Safety fallback
+  {
+    path: '**',
+    redirectTo: 'login',
+  },
 ];
+
